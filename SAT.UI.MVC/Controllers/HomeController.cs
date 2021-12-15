@@ -14,7 +14,7 @@ namespace SAT.UI.MVC.Controllers
         [Authorize]
         public ActionResult About()
         {
-            ViewBag.Message = "Your app description page.";
+            //ViewBag.Message = "Your app description page.";
 
             return View();
         }
@@ -22,9 +22,11 @@ namespace SAT.UI.MVC.Controllers
         [HttpGet]
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            //ViewBag.Message = "Your contact page.";
 
             return View();
         }
+
+
     }
 }

@@ -24,15 +24,15 @@
                 <a href="https://bootstrapdash.com/demo/polluxui/template/index.html?utm_source=organic&utm_medium=banner&utm_campaign=free-preview" target="_blank" class="btn download-button purchase-button ml-auto">Upgrade To Pro</a>
                 <i class="typcn typcn-delete-outline" id="bannerClose"></i>
             </span>
-        </div>*@
-    </div>
+        </div>
+    </div>*@
     <div class="container-scroller">
         <!-- partial:partials/_navbar.html -->
-        <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+        @*<nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="navbar-brand-wrapper d-flex justify-content-center">
                 <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
-                    <a class="navbar-brand brand-logo" href="index.html"><img src="images/logo.svg" alt="logo" /></a>
-                    <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo-mini.svg" alt="logo" /></a>
+                    <a class="navbar-brand brand-logo" href="index.html"><img src="~/Content/images/logo.svg" alt="logo" /></a>
+                    <a class="navbar-brand brand-logo-mini" href="index.html"><img src="~/Content/images/logo-mini.svg" alt="logo" /></a>
                     <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
                         <span class="typcn typcn-th-menu"></span>
                     </button>
@@ -76,7 +76,7 @@
                             <p class="mb-0 font-weight-normal float-left dropdown-header">Messages</p>
                             <a class="dropdown-item preview-item">
                                 <div class="preview-thumbnail">
-                                    <img src="images/faces/face4.jpg" alt="image" class="profile-pic">
+                                    <img src="~/Content/images/faces/face4.jpg" alt="image" class="profile-pic">
                                 </div>
                                 <div class="preview-item-content flex-grow">
                                     <h6 class="preview-subject ellipsis font-weight-normal">
@@ -89,7 +89,7 @@
                             </a>
                             <a class="dropdown-item preview-item">
                                 <div class="preview-thumbnail">
-                                    <img src="images/faces/face2.jpg" alt="image" class="profile-pic">
+                                    <img src="~/Content/images/faces/face2.jpg" alt="image" class="profile-pic">
                                 </div>
                                 <div class="preview-item-content flex-grow">
                                     <h6 class="preview-subject ellipsis font-weight-normal">
@@ -102,7 +102,7 @@
                             </a>
                             <a class="dropdown-item preview-item">
                                 <div class="preview-thumbnail">
-                                    <img src="images/faces/face3.jpg" alt="image" class="profile-pic">
+                                    <img src="~/Content/images/faces/face3.jpg" alt="image" class="profile-pic">
                                 </div>
                                 <div class="preview-item-content flex-grow">
                                     <h6 class="preview-subject ellipsis font-weight-normal">
@@ -168,7 +168,7 @@
                     <span class="typcn typcn-th-menu"></span>
                 </button>
             </div>
-        </nav>
+        </nav>*@
         <!-- partial -->
         <nav class="navbar-breadcrumb col-xl-12 col-12 d-flex flex-row p-0">
             <div class="navbar-links-wrapper d-flex align-items-stretch">
@@ -176,7 +176,8 @@
                     <a href="javascript:;"><i class="typcn typcn-calendar-outline"></i></a>
                 </div>
                 <div class="nav-link">
-                    <a href="javascript:;"><i class="typcn typcn-mail"></i></a>
+                    @*<a href="javascript:;"><i class="typcn typcn-mail"></i></a>*@
+                    <a href="@Url.Action("Contact","Home")"><i class="typcn typcn-mail"></i></a>
                 </div>
                 <div class="nav-link">
                     <a href="javascript:;"><i class="typcn typcn-folder"></i></a>
@@ -388,7 +389,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="index.html">
                             <i class="typcn typcn-device-desktop menu-icon"></i>
-                            <span class="menu-title">Dashboard</span>
+                            <span class="menu-title">Scheduling Admin Tool</span>
                             <div class="badge badge-danger">new</div>
                         </a>
                     </li>
@@ -484,6 +485,12 @@
                         <a class="nav-link" href="https://bootstrapdash.com/demo/polluxui-free/docs/documentation.html">
                             <i class="typcn typcn-mortar-board menu-icon"></i>
                             <span class="menu-title">Documentation</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://bootstrapdash.com/demo/polluxui-free/docs/documentation.html">
+                            <i class="typcn typcn-mortar-board menu-icon"></i>
+                            <span class="menu-title">Test</span>
                         </a>
                     </li>
                 </ul>
@@ -895,7 +902,8 @@
                         </div>
                     </div>*@
 
-                @*</div>*@
+                </div>
+        <div class="clearfix">
                 <!-- content-wrapper ends -->
                 <!-- partial:partials/_footer.html -->
                 <footer class="footer">
