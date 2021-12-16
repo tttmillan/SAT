@@ -6,10 +6,12 @@
 
 <div class="container">
     <h2 class="newview">@ViewBag.Title</h2>
-
+    @if (User.IsInRole("Admin"))
+    {
     <p>
         @Html.ActionLink("Create New", "Create", "StudentStatus", null, new { @class = "btn btn-primary" })
     </p>
+    }
     <table class="table">
         <tr>
             <th>
@@ -29,13 +31,16 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.SSDescription)
-                </td>
-                <td>
+                </td>               
+                @if (User.IsInRole("Admin"))
+                {
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.SSID }, new { @class = "btn btn-warning" })
+                        @Html.ActionLink("Details", "Details", new { id = item.SSID }, new { @class = "btn btn-info" })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.SSID }, new { @class = "btn btn-danger" })
+                    </td>
+                }
 
-                    @Html.ActionLink("Edit", "Edit", new { id = item.SSID }, new { @class = "btn btn-warning" })
-                    @Html.ActionLink("Details", "Details", new { id = item.SSID }, new { @class = "btn btn-info" })
-                    @Html.ActionLink("Delete", "Delete", new { id = item.SSID }, new { @class = "btn btn-danger" })
-                </td>
             </tr>
         }
 

@@ -7,7 +7,7 @@
 <div class="container">
     <h2 class="newview">@ViewBag.Title</h2>
 
-    @if (User.IsInRole("Admin"))
+    @if (User.IsInRole("Admin") || User.IsInRole("Scheduler"))
     {
     <p>
         @Html.ActionLink("Create New", "Create", "ScheduledClasses", null, new { @class = "btn btn-primary" })
@@ -60,11 +60,16 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.ScheduledClassStatus.SCSName)
                     </td>
+                    @if (User.IsInRole("Admin") || User.IsInRole("Scheduler"))
+                    {
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.ScheduledClassId }, new { @class = "btn btn-warning" }) 
+                            @Html.ActionLink("Details", "Details", new { id = item.ScheduledClassId }, new { @class = "btn btn-info" }) 
+                        </td>
+                    }
                     @if (User.IsInRole("Admin"))
                     {
                         <td>
-                            @Html.ActionLink("Edit", "Edit", new { id = item.ScheduledClassId }, new { @class = "btn btn-warning" }) |
-                            @Html.ActionLink("Details", "Details", new { id = item.ScheduledClassId }, new { @class = "btn btn-info" }) |
                             @Html.ActionLink("Delete", "Delete", new { id = item.ScheduledClassId }, new { @class = "btn btn-danger" })
                         </td>
                     }
