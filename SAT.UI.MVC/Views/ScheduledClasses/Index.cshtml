@@ -4,8 +4,9 @@
     ViewBag.Title = "Index";
 }
 
-<h2>@ViewBag.Title</h2>
-<span>
+<div class="container">
+    <h2 class="newview">@ViewBag.Title</h2>
+
     @if (User.IsInRole("Admin"))
     {
         <p>
@@ -13,8 +14,8 @@
         </p>
     }
 
-
-    @*<div class="container">*@
+   
+<div class="container">
 
     <table class="table">
         <tr>
@@ -72,6 +73,7 @@
         }
 
     </table>
+</div>
+</div>
 
     @*</div>*@
-</span>
