@@ -6,10 +6,12 @@
 
 <div class="container">
     <h2 class="newview">@ViewBag.Title</h2>
-
+    @if (User.IsInRole("Admin"))
+    {
     <p>
         @Html.ActionLink("Create New", "Create", "Students", null, new { @class = "btn btn-primary" })
     </p>
+    }
     <table class="table">
         <tr>
             <th>
@@ -29,25 +31,33 @@
 
         @foreach (var item in Model)
         {
-            <tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Major)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentStatus.SSName)
+            </td>
+            @if (User.IsInRole("Admin") || User.IsInRole("Scheduler"))
+            {
                 <td>
-                    @Html.DisplayFor(modelItem => item.FirstName)
+                @Html.ActionLink("Details", "Details", new { id = item.StudentId }, new { @class = "btn btn-info" })
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LastName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Major)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.StudentStatus.SSName)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.StudentId }, new { @class = "btn btn-warning" })
-                    @Html.ActionLink("Details", "Details", new { id = item.StudentId }, new { @class = "btn btn-info" })
-                    @Html.ActionLink("Delete", "Delete", new { id = item.StudentId }, new { @class = "btn btn-danger" })
-                </td>
-            </tr>
+            }
+            @if (User.IsInRole("Admin"))
+            {
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.StudentId }, new { @class = "btn btn-warning" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.StudentId }, new { @class = "btn btn-danger" })
+            </td>
+            }
+        </tr>
         }
 
     </table>
