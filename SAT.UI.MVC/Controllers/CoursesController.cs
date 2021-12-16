@@ -110,10 +110,23 @@ namespace SAT.UI.MVC.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Course course = db.Courses.Find(id);
-            db.Courses.Remove(course);
+            //Soft delete - switch the bool/bit value to the opposite of its current value
+            //changes inactive to active and vice versa
+            course.IsActive = !course.IsActive;
+
+            //db.Courses.Remove(course);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        //// POST: Publishers/Delete/5
+        //[Authorize(Roles = "Admin")]        //[HttpPost, ActionName("Delete")]        //[ValidateAntiForgeryToken]        //public ActionResult DeleteConfirmed(int id)        //{        //    Publisher publisher = db.Publishers.Find(id);
+        //    //db.Publishers.Remove(publisher);
+
+        //    //Soft delete - switch the bool/bit value to the opposite of its current value
+        //    //changes inactive to active and vice versa
+        //    publisher.IsActive = !publisher.IsActive;        //    db.SaveChanges();        //    return RedirectToAction("Index");        //}
+
 
         protected override void Dispose(bool disposing)
         {
