@@ -4,7 +4,8 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<div class="container">
+<h2 class="newview">Details</h2>
 
 <div>
     <h4>Course</h4>
@@ -61,6 +62,7 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.CourseId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CourseId }, new { @class = "btn btn-warning" }) |
+    @Html.ActionLink("Back to List", "Index", null, new {@class= "btn btn-success"})
 </p>
+</div>
