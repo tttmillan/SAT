@@ -166,6 +166,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\EnrollmentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -185,6 +186,22 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\css\bootstrap\bootstrap-grid.css" />
+    <Content Include="Content\css\bootstrap\bootstrap-grid.min.css" />
+    <Content Include="Content\css\bootstrap\bootstrap-grid.rtl.css" />
+    <Content Include="Content\css\bootstrap\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\css\bootstrap\bootstrap-reboot.css" />
+    <Content Include="Content\css\bootstrap\bootstrap-reboot.min.css" />
+    <Content Include="Content\css\bootstrap\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\css\bootstrap\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\css\bootstrap\bootstrap-utilities.css" />
+    <Content Include="Content\css\bootstrap\bootstrap-utilities.min.css" />
+    <Content Include="Content\css\bootstrap\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\css\bootstrap\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\css\bootstrap\bootstrap.css" />
+    <Content Include="Content\css\bootstrap\bootstrap.min.css" />
+    <Content Include="Content\css\bootstrap\bootstrap.rtl.css" />
+    <Content Include="Content\css\bootstrap\bootstrap.rtl.min.css" />
     <Content Include="Content\css\fontawesome.css" />
     <Content Include="Content\css\vertical-layout-light\style.css" />
     <Content Include="Content\custom.css" />
@@ -1025,8 +1042,11 @@
     <Content Include="Content\vendors\typicons\typicons.css" />
     <Content Include="Content\vendors\typicons\typicons.svg" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\respond.js" />
@@ -2002,6 +2022,28 @@
     <Content Include="Content\vendors\typicons\typicons.ttf" />
     <Content Include="Content\vendors\typicons\typicons.woff" />
     <Content Include="configs\connections.config" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Content\css\bootstrap\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\css\bootstrap\bootstrap.rtl.css.map" />
+    <Content Include="Content\css\bootstrap\bootstrap.min.css.map" />
+    <Content Include="Content\css\bootstrap\bootstrap.css.map" />
+    <Content Include="Content\css\bootstrap\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\css\bootstrap\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\css\bootstrap\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\css\bootstrap\bootstrap-utilities.css.map" />
+    <Content Include="Content\css\bootstrap\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\css\bootstrap\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\css\bootstrap\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\css\bootstrap\bootstrap-reboot.css.map" />
+    <Content Include="Content\css\bootstrap\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\css\bootstrap\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\css\bootstrap\bootstrap-grid.min.css.map" />
+    <Content Include="Content\css\bootstrap\bootstrap-grid.css.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -2216,15 +2258,16 @@
     <Content Include="Views\StudentStatus\Details.cshtml" />
     <Content Include="Views\StudentStatus\Edit.cshtml" />
     <Content Include="Views\StudentStatus\Index.cshtml" />
+    <Content Include="Views\Courses\Create.cshtml" />
+    <Content Include="Views\Courses\Delete.cshtml" />
+    <Content Include="Views\Courses\Details.cshtml" />
+    <Content Include="Views\Courses\Edit.cshtml" />
+    <Content Include="Views\Courses\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
