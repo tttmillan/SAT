@@ -31,9 +31,10 @@
                     @Html.DisplayFor(modelItem => item.SSDescription)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.SSID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.SSID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.SSID })
+
+                    @Html.ActionLink("Edit", "Edit", new { id = item.SSID }, new { @class = "btn btn-warning" })
+                    @Html.ActionLink("Details", "Details", new { id = item.SSID }, new { @class = "btn btn-info" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.SSID }, new { @class = "btn btn-danger" })
                 </td>
             </tr>
         }
