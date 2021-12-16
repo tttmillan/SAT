@@ -11,7 +11,9 @@ namespace SAT.DATA.EF
 {
     using System;
     using System.Collections.Generic;
-    
+
+
+
     public partial class ScheduledClass
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,7 +21,7 @@ namespace SAT.DATA.EF
         {
             this.Enrollments = new HashSet<Enrollment>();
         }
-    
+
         public int ScheduledClassId { get; set; }
         public int CourseId { get; set; }
         public System.DateTime StartDate { get; set; }
@@ -27,10 +29,14 @@ namespace SAT.DATA.EF
         public string InstructorName { get; set; }
         public string Location { get; set; }
         public int SCSID { get; set; }
-    
+
         public virtual Course Courses { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Enrollment> Enrollments { get; set; }
         public virtual ScheduledClassStatus ScheduledClassStatus { get; set; }
+
+
     }
+
 }
+

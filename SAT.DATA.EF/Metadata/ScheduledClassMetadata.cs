@@ -21,7 +21,7 @@ namespace SAT.DATA.EF//.Metadata
         [Required(ErrorMessage = "* Required")]
         [StringLength(40, ErrorMessage = "* Must be 40 characters or less")]
         public string InstructorName { get; set; }
-        
+
         [Required(ErrorMessage = "* Required")]
         [StringLength(20, ErrorMessage = "* Must be 20 characters or less")]
         public string Location { get; set; }
@@ -29,6 +29,11 @@ namespace SAT.DATA.EF//.Metadata
     }
 
     [MetadataType(typeof(ScheduledClassMetadata))]
-    public partial class ScheduledClass { }
-
+    public partial class ScheduledClass
+    {
+        public string Summary
+        {
+            get { return ($"{StartDate:d} {CourseId} {Location}"); }
+        }
+    }
 }
