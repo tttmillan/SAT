@@ -17,7 +17,7 @@ namespace SAT.DATA.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public StudentStatus()
         {
-            this.Students = new HashSet<student>();
+            this.Students = new HashSet<Student>();
         }
     
         public int SSID { get; set; }
@@ -25,6 +25,6 @@ namespace SAT.DATA.EF
         public string SSDescription { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<student> Students { get; set; }
+        public virtual ICollection<Student> Students { get; set; }
     }
 }

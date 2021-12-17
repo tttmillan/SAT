@@ -20,6 +20,6 @@ namespace SAT.DATA.EF
         public System.DateTime EnrollmentDate { get; set; }
     
         public virtual ScheduledClass ScheduledClass { get; set; }
-        public virtual student Student { get; set; }
+        public virtual Student Student { get; set; }
     }
 }

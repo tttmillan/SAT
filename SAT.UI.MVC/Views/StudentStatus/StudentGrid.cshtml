@@ -1,49 +1,50 @@
-﻿@model IEnumerable<SAT.DATA.EF.student>
+﻿@model IEnumerable<SAT.DATA.EF.StudentStatus>
 @{
     ViewBag.Title = "StudentGrid";
 }
 
-<h2>@ViewBag.Title</h2>
+<div class="container">
+    <h2 class="newview">@ViewBag.Title</h2>
 
-<p>
-    @Html.ActionLink("List View", "StudentGrid", "StudentStatus", null, new { @class = "btn btn-primary" })
-</p>
 
-<div id="studentGrid">
-    @* The foreach below will iterate through every beer from the db and populate a new div.col-md-3 *@
+    <div class="container">
+        @if (User.IsInRole("Admin"))
+        {
+            <p>
+                @Html.ActionLink("Create New", "Create", "StudentStatus", null, new { @class = "btn btn-primary" })
+            </p>
+        }
+    </div>
+
     @foreach (var item in Model)
     {
-        <div class="col-lg-4 col-md-4" style="height:100%; max-height:200px;">
-            @* Bootstrap column widths 12/4= 3 columns on lg & md screens *@
-            @*<div class="student">
-                <a href="@Url.Action("Details", "StudentStatus", new { id = item.photoUrl })" class="student-img">
-                    <img src="~/Content/images/StudentImages/@item.photoUrl" alt="@item.imageName" />
-                    <i class="student-link-icon fa fa-link"></i>
-                </a>*@
-                <a class="student-title" href="@Url.Action("Details", "StudentStatus", new { id = item.SSID })">@item.SSName</a>
-                <div class="student-details">
-                    <span class="student-category">
-                        @Html.DisplayFor(modelItem => item.SSID)
-                    </span>
-                    <div>
-                        <div class="student-details">
-                            <span class="student-category">
-                                @Html.DisplayFor(modelItem => item.SSName)
-                            </span>
-                            <div>
-                                <span class="student-description">
-                                    @string.Format($"4-pack: {@item.SSDescription}")
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                }
-            </div>
+        @* Bootstrap column widths 12/4= 3 columns on lg & md screens *@
+        <div class="col-md-3" style="height:50%; max-height:200px;">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.SSID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SSName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SSDescription)
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SSID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SSName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SSDescription)
 
+                </td>
+            </tr>
+            }
+        </div>
 
-
-<div class="row col-lg-12 col-md-6" style="margin:5px;">
-    @Html.ActionLink("List View", "Index", null, new { @class = "btn btn-info" })
+    }
 </div>
-<hr />

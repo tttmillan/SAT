@@ -23,8 +23,8 @@ namespace SAT.UI.MVC.Controllers
         // GET: Students
         public ActionResult Index()
         {
-            var students = db.Students.Include(s => s.StudentStatus);
-            return View(students.ToList());
+            var Students = db.Students.Include(s => s.StudentStatus);
+            return View(Students.ToList());
         }
 
         // GET: Students/Details/5
@@ -34,12 +34,12 @@ namespace SAT.UI.MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            student student = db.Students.Find(id);
-            if (student == null)
+            Student Student = db.Students.Find(id);
+            if (Student == null)
             {
                 return HttpNotFound();
             }
-            return View(student);
+            return View(Student);
         }
 
         // GET: Students/Create
@@ -56,7 +56,7 @@ namespace SAT.UI.MVC.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public ActionResult Create([Bind(Include = "StudentId,FirstName,LastName,Major,Address,City,State,ZipCode,Phone,Email,PhotoUrl,SSID")] student student, HttpPostedFileBase photoUrl)//variable must match the name attribute in the input.
+        public ActionResult Create([Bind(Include = "StudentId,FirstName,LastName,Major,Address,City,State,ZipCode,Phone,Email,PhotoUrl,SSID")] Student Student, HttpPostedFileBase photoUrl)//variable must match the name attribute in the input.
         {
             if (ModelState.IsValid)
             {
@@ -99,7 +99,7 @@ namespace SAT.UI.MVC.Controllers
                         #endregion
 
                         //No matter what we will update the photo URL with the value of the file variable
-                        student.PhotoUrl = imageName;
+                        Student.PhotoUrl = imageName;
                     }
                     #endregion
 
@@ -114,18 +114,18 @@ namespace SAT.UI.MVC.Controllers
                 //}
 
                 ////Save to the database no matter whether the file is noImage or it is valid and we have an image to save.
-                //student.PhotoUrl = imageName;
+                //Student.PhotoUrl = imageName;
 
                
 
 
-                db.Students.Add(student);
+                db.Students.Add(Student);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.SSID = new SelectList(db.StudentStatuses, "SSID", "SSName", student.SSID);
-            return View(student);
+            ViewBag.SSID = new SelectList(db.StudentStatuses, "SSID", "SSName", Student.SSID);
+            return View(Student);
         }
 
         // GET: Students/Edit/5
@@ -136,13 +136,13 @@ namespace SAT.UI.MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            student student = db.Students.Find(id);
-            if (student == null)
+            Student Student = db.Students.Find(id);
+            if (Student == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.SSID = new SelectList(db.StudentStatuses, "SSID", "SSName", student.SSID);
-            return View(student);
+            ViewBag.SSID = new SelectList(db.StudentStatuses, "SSID", "SSName", Student.SSID);
+            return View(Student);
         }
 
         // POST: Students/Edit/5
@@ -151,7 +151,7 @@ namespace SAT.UI.MVC.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public ActionResult Edit([Bind(Include = "StudentId,FirstName,LastName,Major,Address,City,State,ZipCode,Phone,Email,PhotoUrl,SSID")] student student, HttpPostedFileBase PhotoUrl)//Added comma and everything after to par en
+        public ActionResult Edit([Bind(Include = "StudentId,FirstName,LastName,Major,Address,City,State,ZipCode,Phone,Email,PhotoUrl,SSID")] Student Student, HttpPostedFileBase PhotoUrl)//Added comma and everything after to par en
         {
             if (ModelState.IsValid)
             {
@@ -203,28 +203,28 @@ namespace SAT.UI.MVC.Controllers
 
                         //string currentFile = Request.Params["PhotoUrl"];
 
-                        if (student.PhotoUrl != "noImage.png" && student.PhotoUrl != null)
+                        if (Student.PhotoUrl != "noImage.png" && Student.PhotoUrl != null)
                         {
                             //delete the previously associated image from the web server
                             string path = Server.MapPath("~/Content/images/StudentImages/");
-                            ImageUtility.Delete(path, student.PhotoUrl);
+                            ImageUtility.Delete(path, Student.PhotoUrl);
 
                             //System.IO.File.Delete(Server.MapPath("~/Content/images/StudentImages/" + currentFile));
                         }
 
-                    student.PhotoUrl = imageName;
+                    Student.PhotoUrl = imageName;
                     }//only if the image meets all of the criteria - send the image name to the database
                 }
                 //if the image does not meet our criteria OR no file was included, the HiddenFor() in the Edit View will maintain the current image with no manual interaction from the user.
 
                 #endregion
-                db.Entry(student).State = EntityState.Modified;
+                db.Entry(Student).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.SSID = new SelectList(db.StudentStatuses, "SSID", "SSName", student.SSID);
-            return View(student);
+            ViewBag.SSID = new SelectList(db.StudentStatuses, "SSID", "SSName", Student.SSID);
+            return View(Student);
         }
 
         // GET: Students/Delete/5
@@ -235,12 +235,12 @@ namespace SAT.UI.MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            student student = db.Students.Find(id);
-            if (student == null)
+            Student Student = db.Students.Find(id);
+            if (Student == null)
             {
                 return HttpNotFound();
             }
-            return View(student);
+            return View(Student);
         }
 
         // POST: Students/Delete/5
@@ -249,11 +249,11 @@ namespace SAT.UI.MVC.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult DeleteConfirmed(int id)
         {
-            student student = db.Students.Find(id);
+            Student Student = db.Students.Find(id);
             //Soft delete - switch the bool/bit value to the opposite of its current value
             //changes inactive to active and vice versa
-            //student.IsActive = !student.IsActive;
-            db.Students.Remove(student);
+            //Student.IsActive = !Student.IsActive;
+            db.Students.Remove(Student);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

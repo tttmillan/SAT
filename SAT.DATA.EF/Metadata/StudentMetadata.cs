@@ -60,6 +60,6 @@ namespace SAT.DATA.EF//.Metadata
     }
 
     [MetadataType(typeof(StudentMetadata))]
-    public partial class student { }
+    public partial class Student { }
 
 }

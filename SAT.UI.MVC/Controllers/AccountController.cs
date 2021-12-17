@@ -16,7 +16,7 @@ namespace SAT.UI.MVC.Controllers
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -74,8 +74,8 @@ namespace SAT.UI.MVC.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
-                    //return View("Index", "UserAdmin");
+                    //return View("Index", "UsersAdmin");
+                    return RedirectToAction("Index", "UsersAdmin"/*, new { ReturnUrl = returnUrl, RememberMe = model.RememberMe }*/);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:

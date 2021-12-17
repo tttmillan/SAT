@@ -42,7 +42,8 @@
 </div>
 
 <div>
-    @Html.ActionLink("Back to List", "Index", "StudentStatus", null, new { @class = "btn btn-success" })
+    @Html.ActionLink("List", "Index", "StudentStatus", null, new { @class = "btn btn-success" })
+    @Html.ActionLink("Grid", "StudentGrid", "StudentStatus", null, new { @class = "btn btn-primary" })
 </div>
 
 @section Scripts {
