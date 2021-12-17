@@ -55,9 +55,10 @@
                     @Html.DisplayFor(modelItem => item.IsActive)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.CourseId }, new { @class = "btn btn-warning"}) 
-                    @Html.ActionLink("Details", "Details", new { id = item.CourseId }, new { @class = "btn btn-info" }) 
-                    @Html.ActionLink("Delete", "Delete", new { id = item.CourseId }, new { @class = "btn btn-danger" })
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CourseId }, new { @class = "btn btn-warning" })
+                    @Html.ActionLink("Details", "Details", new { id = item.CourseId }, new { @class = "btn btn-info" })
+                    @Html.ActionLink("Deactivate", "Delete", new { id = item.CourseId }, new { @class = "btn btn-danger" })
+                    @Html.ActionLink("Reactivate", "Reactivate", new { id = item.CourseId }, new { @class = "btn btn-success" })
                 </td>
             </tr>
         }

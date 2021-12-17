@@ -119,13 +119,35 @@ namespace SAT.UI.MVC.Controllers
             return RedirectToAction("Index");
         }
 
-        //// POST: Publishers/Delete/5
-        //[Authorize(Roles = "Admin")]        //[HttpPost, ActionName("Delete")]        //[ValidateAntiForgeryToken]        //public ActionResult DeleteConfirmed(int id)        //{        //    Publisher publisher = db.Publishers.Find(id);
-        //    //db.Publishers.Remove(publisher);
+        // GET: Courses/Reactivate
+        public ActionResult Reactivate(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Course course = db.Courses.Find(id);
+            if (course == null)
+            {
+                return HttpNotFound();
+            }
+            return View(course);
+        }
 
-        //    //Soft delete - switch the bool/bit value to the opposite of its current value
-        //    //changes inactive to active and vice versa
-        //    publisher.IsActive = !publisher.IsActive;        //    db.SaveChanges();        //    return RedirectToAction("Index");        //}
+        // POST: Courses/Reactivate
+        [HttpPost, ActionName("Reactivate")]
+        [ValidateAntiForgeryToken]
+        public ActionResult ReactivateConfirmed(int id)
+        {
+            Course course = db.Courses.Find(id);
+            //Soft delete - switch the bool/bit value to the opposite of its current value
+            //changes inactive to active and vice versa
+            course.IsActive = !course.IsActive;
+
+            //db.Courses.Remove(course);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
 
         protected override void Dispose(bool disposing)
