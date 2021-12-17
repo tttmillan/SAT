@@ -8,7 +8,8 @@
     <h2 class="newview">@ViewBag.Title</h2>
 
 
-    @using (Html.BeginForm())
+    @*@using (Html.BeginForm())--This is the org. below is what was added for image upload*@
+    @using (Html.BeginForm("Edit", "Students", FormMethod.Post, new { @enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
 
@@ -17,6 +18,8 @@
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             @Html.HiddenFor(model => model.StudentId)
+            @* Added below to capture the current value of the file *@
+            @Html.HiddenFor(model => model.PhotoUrl)
 
             <div class="form-group">
                 @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -93,8 +96,12 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.PhotoUrl, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.PhotoUrl, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.PhotoUrl, "", new { @class = "text-danger" })
+                    @*@Html.EditorFor(model => model.PhotoUrl, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.PhotoUrl, "", new { @class = "text-danger" })*@
+                    @* Comment out above and added below *@
+                    <img src="~/Content/images/StudentImages/@Model.PhotoUrl" alt="@Model.PhotoUrl" style="width: 25%;" />
+                    <br />
+                    <input type="file" name="PhotoUrl" />
                 </div>
             </div>
 
