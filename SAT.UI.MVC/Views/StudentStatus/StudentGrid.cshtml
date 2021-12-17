@@ -1,0 +1,49 @@
+﻿@model IEnumerable<SAT.DATA.EF.student>
+@{
+    ViewBag.Title = "StudentGrid";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("List View", "StudentGrid", "StudentStatus", null, new { @class = "btn btn-primary" })
+</p>
+
+<div id="studentGrid">
+    @* The foreach below will iterate through every beer from the db and populate a new div.col-md-3 *@
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-4 col-md-4" style="height:100%; max-height:200px;">
+            @* Bootstrap column widths 12/4= 3 columns on lg & md screens *@
+            @*<div class="student">
+                <a href="@Url.Action("Details", "StudentStatus", new { id = item.photoUrl })" class="student-img">
+                    <img src="~/Content/images/StudentImages/@item.photoUrl" alt="@item.imageName" />
+                    <i class="student-link-icon fa fa-link"></i>
+                </a>*@
+                <a class="student-title" href="@Url.Action("Details", "StudentStatus", new { id = item.SSID })">@item.SSName</a>
+                <div class="student-details">
+                    <span class="student-category">
+                        @Html.DisplayFor(modelItem => item.SSID)
+                    </span>
+                    <div>
+                        <div class="student-details">
+                            <span class="student-category">
+                                @Html.DisplayFor(modelItem => item.SSName)
+                            </span>
+                            <div>
+                                <span class="student-description">
+                                    @string.Format($"4-pack: {@item.SSDescription}")
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+
+
+
+<div class="row col-lg-12 col-md-6" style="margin:5px;">
+    @Html.ActionLink("List View", "Index", null, new { @class = "btn btn-info" })
+</div>
+<hr />

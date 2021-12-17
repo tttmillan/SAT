@@ -34,7 +34,7 @@ namespace SAT.UI.MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Student student = db.Students.Find(id);
+            student student = db.Students.Find(id);
             if (student == null)
             {
                 return HttpNotFound();
@@ -56,7 +56,7 @@ namespace SAT.UI.MVC.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public ActionResult Create([Bind(Include = "StudentId,FirstName,LastName,Major,Address,City,State,ZipCode,Phone,Email,PhotoUrl,SSID")] Student student, HttpPostedFileBase photoUrl)//variable must match the name attribute in the input.
+        public ActionResult Create([Bind(Include = "StudentId,FirstName,LastName,Major,Address,City,State,ZipCode,Phone,Email,PhotoUrl,SSID")] student student, HttpPostedFileBase photoUrl)//variable must match the name attribute in the input.
         {
             if (ModelState.IsValid)
             {
@@ -136,7 +136,7 @@ namespace SAT.UI.MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Student student = db.Students.Find(id);
+            student student = db.Students.Find(id);
             if (student == null)
             {
                 return HttpNotFound();
@@ -151,7 +151,7 @@ namespace SAT.UI.MVC.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public ActionResult Edit([Bind(Include = "StudentId,FirstName,LastName,Major,Address,City,State,ZipCode,Phone,Email,PhotoUrl,SSID")] Student student, HttpPostedFileBase PhotoUrl)//Added comma and everything after to par en
+        public ActionResult Edit([Bind(Include = "StudentId,FirstName,LastName,Major,Address,City,State,ZipCode,Phone,Email,PhotoUrl,SSID")] student student, HttpPostedFileBase PhotoUrl)//Added comma and everything after to par en
         {
             if (ModelState.IsValid)
             {
@@ -235,7 +235,7 @@ namespace SAT.UI.MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Student student = db.Students.Find(id);
+            student student = db.Students.Find(id);
             if (student == null)
             {
                 return HttpNotFound();
@@ -249,7 +249,7 @@ namespace SAT.UI.MVC.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult DeleteConfirmed(int id)
         {
-            Student student = db.Students.Find(id);
+            student student = db.Students.Find(id);
             //Soft delete - switch the bool/bit value to the opposite of its current value
             //changes inactive to active and vice versa
             //student.IsActive = !student.IsActive;

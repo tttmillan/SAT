@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using SAT.DATA.EF;
+using SAT.UI.MVC.Models;
 
 namespace SAT.UI.MVC.Controllers
 {
@@ -19,6 +20,14 @@ namespace SAT.UI.MVC.Controllers
         public ActionResult Index()
         {
             return View(db.StudentStatuses.ToList());
+        }
+
+        //GET: StudentStatus - Grid or Tiled View
+        public ActionResult StudentGrid()
+        {
+            //Need to reference the Students table in the DB to get access to this - somehow through the "Model"
+            var studentgrid = db.Students;
+            return View(db.Students.ToList());
         }
 
         // GET: StudentStatus/Details/5

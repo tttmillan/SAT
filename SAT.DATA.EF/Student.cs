@@ -12,10 +12,10 @@ namespace SAT.DATA.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class Student
+    public partial class student
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Student()
+        public student()
         {
             this.Enrollments = new HashSet<Enrollment>();
         }
