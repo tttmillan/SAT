@@ -75,6 +75,7 @@ namespace SAT.UI.MVC.Controllers
             {
                 case SignInStatus.Success:
                     return RedirectToLocal(returnUrl);
+                    //return View("Index", "UserAdmin");
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -121,7 +122,8 @@ namespace SAT.UI.MVC.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(model.ReturnUrl);
+                    //return RedirectToLocal(model.ReturnUrl);
+                    return View("Index", "UsersAdmin");
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.Failure:
